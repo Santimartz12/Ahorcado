@@ -2,6 +2,18 @@
 //matriz con palabras
 let palabras = ["HTML","PROGRAMACION","ALURA","JAVASCRIPT","FRONTEND","BACKEND","TRELLO","ORACLE","ONE","INDEX","GITHUB","COLOMBIA","CHALLENGES","DISCORD","CANVAS"];
 
+var lienzo = document.querySelector("#dibujoahorcado");
+var pincel = lienzo.getContext("2d");
+
+//Dibujamos el ahorcado
+//450 x 500
+pincel.fillStyle = "#fcf3f7";
+pincel.fillRect(0,0,450,500);
+
+//Dibujar horca
+dibujarhorca(pincel);
+
+
 //funcion para pedir la palabra ingresada anteriormente
 function llamardatosstg(){
     var palabranueva = sessionStorage.getItem("palabra");

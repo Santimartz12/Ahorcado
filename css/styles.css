@@ -71,16 +71,21 @@ h2 {
     padding: 20px 0;
 }
 
+#dibujoahorcado{
+    width: 40%;
+    margin: 0 30% 50px 30%;
+}
+
 .espaciosdecontenidos{
     width: 45%;
-    margin: 70px auto 0px auto;
+    margin: 60px auto 0px auto;
 }
 
 #ingresarpalabra{
     font-family: 'Montserrat', sans-serif;
     font-weight: 500;
     font-size: 30px;
-    height: 12em;
+    height: 13em;
     width: 100%;
     outline-style: none;
     border-style: none;
@@ -142,5 +147,6 @@ h2 {
 }
 
 .invisible{
-    opacity: 0%;
+    display: none;
 }
+
