@@ -5,49 +5,19 @@ let palabras = ["HTML","PROGRAMACION","ALURA","JAVASCRIPT","FRONTEND","BACKEND",
 var lienzo = document.querySelector("#dibujoahorcado");
 var pincel = lienzo.getContext("2d");
 
-//Dibujamos el ahorcado
-//450 x 500
-pincel.strokeStyle = "#710a29";
-
-//Dibujar horca
-dibujarhorca(pincel);
-
-//Dibujar cabeza
-dibujarcabeza(pincel);
-
-//Dibujar tronco
-dibujartronco(pincel);
-
-//Dibujar brazo izquierdo
-dibujarbrzizq(pincel);
-
-//Dibujar brazo derecho
-dibujarbrzder(pincel);
-
-//Dibujar pierna izquierda
-dibujarlegizq(pincel);
-
-//Dibujar pierna derecha
-dibujarlegder(pincel);
-
-//funcion para pedir la palabra ingresada anteriormente
-function llamardatosstg(){
-    var palabranueva = sessionStorage.getItem("palabra");
-    return palabranueva;
-}
+var palabrasecreta = (palabras[(Math.round(Math.random()*(palabras.length - 1)))]);
+console.log(palabrasecreta);
 
 var palabraaingresar = llamardatosstg();
 
+//Si no se ingresó una palabra anteriormente, se ejecuta este código
 if(palabraaingresar == null){
-    console.log("no se ejecuta nada");
-    console.log(palabras[(Math.round(Math.random()*(palabras.length - 1)))]);
-}
-else{
-
-    console.log(palabras[(Math.round(Math.random()*(palabras.length - 1)))]);
     console.log(palabras);
-    console.log(palabraaingresar);
+    logicahorca(palabrasecreta);
+}
+//Si se ingresó una palabra anteriormente, se ejecuta este código
+else{
     palabras.push(palabraaingresar);
     console.log(palabras);
-    
+    logicahorca(palabrasecreta);
 }
