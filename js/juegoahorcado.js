@@ -7,12 +7,28 @@ var pincel = lienzo.getContext("2d");
 
 //Dibujamos el ahorcado
 //450 x 500
-pincel.fillStyle = "#fcf3f7";
-pincel.fillRect(0,0,450,500);
+pincel.strokeStyle = "#710a29";
 
 //Dibujar horca
 dibujarhorca(pincel);
 
+//Dibujar cabeza
+dibujarcabeza(pincel);
+
+//Dibujar tronco
+dibujartronco(pincel);
+
+//Dibujar brazo izquierdo
+dibujarbrzizq(pincel);
+
+//Dibujar brazo derecho
+dibujarbrzder(pincel);
+
+//Dibujar pierna izquierda
+dibujarlegizq(pincel);
+
+//Dibujar pierna derecha
+dibujarlegder(pincel);
 
 //funcion para pedir la palabra ingresada anteriormente
 function llamardatosstg(){
