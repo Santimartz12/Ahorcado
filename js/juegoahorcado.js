@@ -4,7 +4,6 @@ let palabras = ["HTML","VARIABLE","ALURA","JAVASCRIPT","FRONTEND","BACKEND","TRE
 
 var lienzo = document.querySelector("#dibujoahorcado");
 var pincel = lienzo.getContext("2d");
-
 var textoslienzo = document.querySelector("#lineasahorcado");
 var lineas = textoslienzo.getContext("2d");
 
@@ -15,7 +14,6 @@ var contadoraciertos = 0;
 
 function crearpalabra(){
     var palabrasecreta = (palabras[(Math.floor(Math.random()*(palabras.length)))]);
-    console.log(palabrasecreta);
     return palabrasecreta;
 }
 
@@ -36,5 +34,5 @@ else{
     palabrasecreta = crearpalabra();
     dibujarlineas(palabrasecreta);
     logicahorca(palabrasecreta);
-    
+
 }

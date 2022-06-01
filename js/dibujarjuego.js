@@ -197,47 +197,46 @@ function logicahorca(palabrasecreta) {
     var contenedorletras = ["A","B","C","D","E","F","G","H","I","J","K","L","M","N","O","P","Q","R","S","T","U","V","W","X","Y","Z"];
     document.addEventListener("keydown", function (letraingresada) {
         var letra = letraingresada.key.toUpperCase();
-        //Detectar letras repetidas o presionadas
-        if (!verificartecla(letraingresada.key)) {
-            console.log("Se presionó una tecla");
 
-            //Detectar Si se acierta la letra
-            if(palabrasecreta.includes(letra)){
-                console.log("Se acierta la letra");
-
-                //Si se acierta la letra se dibuja en el canvas
-                for(var i = 0; i < palabrasecreta.length;i++){
-                    if(palabrasecreta[i]==letra){
-                        dibujarletrasCorrectas(palabrasecreta,i);
-                        contadoraciertos++;
+        for(var k = 0; k < contenedorletras.length;k++){
+            if(contenedorletras[k]==letra){
+                //Detectar letras repetidas o presionadas
+                if (!verificartecla(letraingresada.key)) {
+    
+                    //Detectar Si se acierta la letra
+                    if(palabrasecreta.includes(letra)){
+    
+                        //Si se acierta la letra se dibuja en el canvas
+                        for(var i = 0; i < palabrasecreta.length;i++){
+                            if(palabrasecreta[i]==letra){
+                                dibujarletrasCorrectas(palabrasecreta,i);
+                                contadoraciertos++;
+                            }
+                        }
+    
+                        if(contadoraciertos == palabrasecreta.length){
+                            swal({
+                                title: "Ganaste",
+                                text: "La palabra correcta es " + palabrasecreta,
+                                icon: 'success',
+                                button: "Nuevo Juego",
+                            }).then(respuesta => {
+                                if (respuesta == true) {
+                                    window.location.href = "../html/game.html";
+                                }
+                                else {
+                                    window.location.href = "../index.html";
+                                }
+                            })
+                        }
+                    }
+                    else{
+                        contadorerrores++;
+                        dibujarletrasIncorrectas(letra, contadorerrores);
+                        horca(contadorerrores, palabrasecreta);
                     }
                 }
-
-                if(contadoraciertos == palabrasecreta.length){
-                    swal({
-                        title: "Ganaste",
-                        text: "La palabra correcta es " + palabrasecreta,
-                        icon: 'success',
-                        button: "Nuevo Juego",
-                    }).then(respuesta => {
-                        if (respuesta == true) {
-                            window.location.href = "../html/game.html";
-                        }
-                        else {
-                            window.location.href = "../index.html";
-                        }
-                    })
-                }
             }
-            else{
-                console.log("Se falla la letra");
-                contadorerrores++;
-                dibujarletrasIncorrectas(letra, contadorerrores);
-                horca(contadorerrores, palabrasecreta);
-            }
-        }
-        else{
-            console.log("Tecla repetida");
-        }
+        }      
     })
 }
