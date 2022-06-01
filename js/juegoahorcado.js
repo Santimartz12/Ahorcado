@@ -1,6 +1,6 @@
 
 //matriz con palabras
-let palabras = ["HTML","PROGRAMACION","ALURA","JAVASCRIPT","FRONTEND","BACKEND","TRELLO","ORACLE","ONE","INDEX","GITHUB","COLOMBIA","CHALLENGES","DISCORD","CANVAS"];
+let palabras = ["HTML","VARIABLE","ALURA","JAVASCRIPT","FRONTEND","BACKEND","TRELLO","ORACLE","ONE","INDEX","GITHUB","COLOMBIA","RETO","DISCORD","CANVAS","CODING","JSON","RANDOM","SCRIPT","GIT","FIGMA"];
 
 var lienzo = document.querySelector("#dibujoahorcado");
 var pincel = lienzo.getContext("2d");
@@ -8,22 +8,33 @@ var pincel = lienzo.getContext("2d");
 var textoslienzo = document.querySelector("#lineasahorcado");
 var lineas = textoslienzo.getContext("2d");
 
-lineas.fillStyle = "white";
-lineas.fillRect(0,0,1200,400);
+var letras = [];
+var contadorerrores = 0;
+var palabracorrecta = "";
+var contadoraciertos = 0;
 
-var palabrasecreta = (palabras[(Math.round(Math.random()*(palabras.length - 1)))]);
-console.log(palabrasecreta);
+function crearpalabra(){
+    var palabrasecreta = (palabras[(Math.floor(Math.random()*(palabras.length)))]);
+    console.log(palabrasecreta);
+    return palabrasecreta;
+}
 
 var palabraaingresar = llamardatosstg();
 
 //Si no se ingresó una palabra anteriormente, se ejecuta este código
 if(palabraaingresar == null){
-    console.log(palabras);
+
+    palabrasecreta = crearpalabra();
+    dibujarlineas(palabrasecreta);
     logicahorca(palabrasecreta);
+    
 }
 //Si se ingresó una palabra anteriormente, se ejecuta este código
 else{
+
     palabras.push(palabraaingresar);
-    console.log(palabras);
+    palabrasecreta = crearpalabra();
+    dibujarlineas(palabrasecreta);
     logicahorca(palabrasecreta);
+    
 }
