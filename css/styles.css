@@ -78,7 +78,7 @@ h2 {
 
 .espaciosdecontenidos{
     width: 45%;
-    margin: 60px auto 0px auto;
+    margin: 60px auto 30px auto;
 }
 
 #lineasahorcado{
@@ -154,3 +154,24 @@ h2 {
     display: none;
 }
 
+#infocopy{
+    font-family: 'Montserrat', sans-serif;
+    color: #710a29;
+    font-weight: 300;
+    text-align: center;
+    margin: 0 10px 0 0;
+}
+
+#contenedorfooter{
+    width: 50%;
+    margin: 0 10% 0 40%;
+    display: flex;
+}
+
+.logos{
+    height: 15px;
+}
+
+#logoGH{
+    margin: 0 15px 0 1px;
+}

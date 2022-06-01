@@ -9,7 +9,6 @@ var lineas = textoslienzo.getContext("2d");
 
 var letras = [];
 var contadorerrores = 0;
-var palabracorrecta = "";
 var contadoraciertos = 0;
 
 function crearpalabra(){
