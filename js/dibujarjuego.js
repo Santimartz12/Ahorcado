@@ -1,10 +1,14 @@
-function dibujarhorca(pincel){
+function dibujarsuelo(pincel){
 
     pincel.lineWidth = 10;
     pincel.beginPath();
     pincel.moveTo(5,490);
     pincel.lineTo(445,490);
     pincel.stroke();
+
+}
+
+function dibujarhorca(pincel){
 
     pincel.beginPath();
     pincel.moveTo(100,10);
@@ -71,7 +75,7 @@ function llamardatosstg(){
 }
 
 //Funcion de dibujar Horca
-function horca(contadorerrores){
+function horca(contadorerrores, palabrasecreta){
 
     pincel.strokeStyle = "#710a29";
     pincel.lineWidth = 10;
@@ -80,37 +84,55 @@ function horca(contadorerrores){
 
     if(contadorerrores == 1){
         //Dibujar horca
-        dibujarhorca(pincel);
+        dibujarsuelo(pincel);
     }
 
     if(contadorerrores == 2){
+        //Dibujar horca
+        dibujarhorca(pincel);
+    }
+
+    if(contadorerrores == 3){
         //Dibujar cabeza
         dibujarcabeza(pincel);
     }
 
-    if(contadorerrores == 3){
+    if(contadorerrores == 4){
         //Dibujar tronco
         dibujartronco(pincel);
     }
 
-    if(contadorerrores == 4){
+    if(contadorerrores == 5){
         //Dibujar brazo izquierdo
         dibujarbrzizq(pincel);
     }
 
-    if(contadorerrores == 5){
+    if(contadorerrores == 6){
         //Dibujar brazo derecho
         dibujarbrzder(pincel);
     }
 
-    if(contadorerrores == 6){
+    if(contadorerrores == 7){
         //Dibujar pierna izquierda
         dibujarlegizq(pincel);
     }
 
-    if(contadorerrores == 7){
+    if(contadorerrores == 8){
         //Dibujar pierna derecha
         dibujarlegder(pincel);
+        swal({
+            title: "Perdiste",
+            text: "La palabra correcta es " + palabrasecreta,
+            icon: 'error',
+            button: "Nuevo Juego",
+        }).then(respuesta =>{
+            if(respuesta == true){
+                window.location.href="../html/game.html";
+            }
+            else{
+                window.location.href="../index.html";
+            }
+        })
     }
 }
 
@@ -129,14 +151,12 @@ function logicahorca(palabrasecreta){
                 acierto = true;
                 break;
             }
-            console.log(i);
         }
 
         if(acierto == false){
             contadorerrores++
-            console.log("Fallaste");
         }
 
-        horca(contadorerrores);
+        horca(contadorerrores,palabrasecreta);
     })
 }

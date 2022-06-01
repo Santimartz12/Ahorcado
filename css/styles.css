@@ -81,6 +81,10 @@ h2 {
     margin: 60px auto 0px auto;
 }
 
+#lineasahorcado{
+    width: 100%;
+}
+
 #ingresarpalabra{
     font-family: 'Montserrat', sans-serif;
     font-weight: 500;

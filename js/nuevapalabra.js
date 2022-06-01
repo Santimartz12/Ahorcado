@@ -2,10 +2,13 @@ var botonguardarpalabra = document.querySelector("#Btnsave");
 var masdeocho = document.querySelector("#masdeocho");
 var textoconnumeros = document.querySelector("#textoconnumeros");
 var menosdeuno = document.querySelector("#menosdeuno");
+var acentos = document.querySelector("#noacentos");
+
 var newword = document.querySelector("#ingresarpalabra");
 newword.focus();
 
 let numeros=["0","1","2","3","4","5","6","7","8","9"];
+let noacentos=["á","é","í","ó","ú","ñ"];
 
 botonguardarpalabra.addEventListener("click",function(){
 
@@ -22,6 +25,17 @@ botonguardarpalabra.addEventListener("click",function(){
             }
             else{
                 textoconnumeros.classList.add("invisible");
+            }
+        }
+    }
+
+    for(let i = 0; i < palabra.length;i++){
+
+        for(let j = 0; j < noacentos.length;j++){
+            if(palabra[i].includes(noacentos[j])){
+                acentos.classList.remove("invisible");
+                errores = false;
+                break;
             }
         }
     }

@@ -5,6 +5,12 @@ let palabras = ["HTML","PROGRAMACION","ALURA","JAVASCRIPT","FRONTEND","BACKEND",
 var lienzo = document.querySelector("#dibujoahorcado");
 var pincel = lienzo.getContext("2d");
 
+var textoslienzo = document.querySelector("#lineasahorcado");
+var lineas = textoslienzo.getContext("2d");
+
+lineas.fillStyle = "white";
+lineas.fillRect(0,0,1200,400);
+
 var palabrasecreta = (palabras[(Math.round(Math.random()*(palabras.length - 1)))]);
 console.log(palabrasecreta);
 
