@@ -8,7 +8,7 @@ var newword = document.querySelector("#ingresarpalabra");
 newword.focus();
 
 let numeros=["0","1","2","3","4","5","6","7","8","9"];
-let noacentos=["á","é","í","ó","ú","ñ"];
+let noacentos=["á","é","í","ó","ú","ñ",",","."":",";"];
 
 botonguardarpalabra.addEventListener("click",function(){
 
